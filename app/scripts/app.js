@@ -1,16 +1,5 @@
 angular.module('myApp', ['ngMaterial', 'ngAnimate', 'ngMessages', 'ngAria','zumba.angular-waypoints']);
 
-//angular.module('myApp')
-  //.config(function($stateProvider){
-    //$stateProvider.state('home',
-      //{
-        //url: 'contacts/{contacts}',
-        //template: "Hi There"
-      //}
-    //);
-  //});
-
-
 angular.module('myApp')
   .controller('appCtrl', ['$scope', '$interval', '$mdDialog',
       '$timeout', '$mdMedia', function($scope, $interval, $mdDialog, $timeout, $mdMedia){
