@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/angular-material.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+</head>
+
+<body ng-app="myApp">
+  <div ng-controller="appCtrl as ac" layout="column" ng-cloak>
+
+    <!--navbar start-->
+    <section class="navbar" layout="row">
+      <div layout="row" flex="100" layout-align="center start" layout-wrap layout-padding>
+        <div layout="row" layout-align="center center">
+          <h1>
+            CITATIONS
+          </h1>
+          <h1 style="color:#F44336;">
+            X
+          </h1>
+          <h1>
+            DISMISSED
+          </h1>
+        </div>
+        <div flex-sm="100" hide-sm>
+            <div layout="row" layout-padding layout-align="center center">
+              <h4>
+                Speeding Tickets? DUI?  <i>Call Richard M. Chaskin</i>
+              </h4>
+              <md-button class="md-raised md-warn" style="margin-left:15px">
+                (213) 383-8860
+              </md-button>
+            </div>
+            <!--<div style="align-self: flex-end;">-->
+              <!--<h4>-->
+                <!--<i>-->
+                  <!--Call Richard M. Chaskin, Attorney at Law-->
+                <!--</i>-->
+              <!--</h4>-->
+            <!--</div>-->
+        </div>
+      </div>
+    </section>
+     <!--navbar end -->
+
+    <!--slideshow start-->
+    <div class="photo-show">
+      <div class="slide-image slide-image-animation" layout="column" layout-align="center center" ng-repeat="photo in ac.photos" ng-hide="ac.photosIndex !== $index" ng-style="{'background': 'url({{photo.url}}) no-repeat center center','width': '100%','background-size':'cover'}">
+        <h1>
+          {{photo.lineOne}}
+        </h1>
+        <h2>
+          {{photo.lineTwo}}
+        </h2>
+        <md-button ng-click="ac.showAdvanced($event)" class="md-raised md-warn">
+          WATCH THE VIDEO
+        </md-button>
+        <div layout="row">
+          <svg ng-repeat="i in ac.photos" height="40" width="25" style="display:inherit;margin:0 auto;">
+            <circle ng-class="{'red-dot': ac.photosIndex === $index}" cx="50%" cy="50%" r="8" stroke="none" fill="white" ng-click="ac.photosIndex = $index" />
+          </svg>
+        </div>
+      </div>
+    </div>
+     <!--slideshow end-->
+    <section class="copy-two">
+      <!--<div class="hand-shake">-->
+      <!--</div>-->
+    </section>
+
+    <div class="hand-shake">
+      <div layout="row" class="hand-shake-animation" layout-wrap zum-waypoint="mark2"
+      down="flags.down" up="flags.up" offset="10%" ng-hide="mark2.flags.up || ac.triggerHide === false">
+        <div flex="50" id="lefty" flex-sm="100" layout="column" layout-align="center center">
+          <h1>
+            EXPERIENCE IS KEY
+          </h1>
+          <p>
+            As you choose to retain Citations Dismissed to handle your traffic matter(s), you can rest assured that the firm has a success rate upwards of 90%, reflective of our ability to save clients time, energy, and in most cases money as well.
+          </p>
+        </div>
+        <div flex="50" id="righty" flex-sm="100" layout="column" layout-align="center center">
+          <h3 class="invis" id="righty-one">
+            - SPEEDING TICKETS
+          </h3>
+          <h3 id="righty-two">
+            - DUI
+          </h3>
+          <h3 id="righty-three">
+            - FAILURE TO APPEAR
+          </h3>
+          <h3 id="righty-four">
+            - SUSPENDED LICENSE
+          </h3>
+        </div>
+      </div>
+    </div>
+    <!--<div class="testimonials" layout="row" layout-wrap zum-waypoint="mark2" down="flags.down" up="flags.up" offset="50%" ng-hide="mark2.flags.up">-->
+      <!--<div flex-gt-sm="50" flex-sm="100">-->
+        <!--<img src="test1.jpg" style="-webkit-filter: blur(30px); -moz-filter: blur(30px);-->
+        <!---o-filter: blur(30px); -ms-filter: blur(30px); width:100%;">-->
+
+      <!--</div>-->
+      <!--<div flex-gt-sm="50" flex-sm="100">-->
+        <!--<img src="test2.jpg" style="width:100%;">-->
+      <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--<div layout="row" layout-align="center center">-->
+      <!--<div class="slider">-->
+        <!--<svg height="500" width="500" style="display:inherit;margin:0 auto;">-->
+            <!--<circle hide-sm cx="50%" cy="250" r="200" stroke="white" stroke-width="4" fill="none" />-->
+        <!--</svg>-->
+
+        <!--<div ng-repeat="slide in ac.slides"-->
+          <!--ng-hide="ac.photosIndex !== $index"-->
+          <!--class="slide slide-animation">-->
+          <!--<h1 class="title"><span>{{slide.quote}}</span></h1>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<section class="copy-one">-->
+
+    <!--</section>-->
+
+    <!--<section class="map-section">-->
+
+    <!--</section>-->
+  </div>  <!--  controller -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/angular-waypoints/dist/angular-waypoints.all.min.js"></script>
+  <script src="../node_modules/angular-aria/angular-aria.js"></script>
+  <script src="../node_modules/angular-material/angular-material.js"></script>
+  <script src="../node_modules/angular-messages/angular-messages.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
